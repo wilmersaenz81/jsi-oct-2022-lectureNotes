@@ -106,20 +106,22 @@ for(cat in catArray) {
     Fizz
     Buzz
 */
+for (let i = 1; i <=30; i++) {
+    if (i % 15 == 0) {
+        console.log('Fizz Buzz');
+       } else if (1 % 5 == 0) {
+        console.log('Buzz');
+       } else if( i % 3 == 0) {
+        console.log('Fizz');   
+    } else {
+        console.log(i);
+    }
+}
 
-// let f;
-
-// for( f = 0; f <= 30; f++) {
-//     if (f / 3 == 0 ) {
-
-//         console.log("Fizz");
-
-//     } else {
-//         console.log
-//     }
-
+// ternary 
+//switch
     
-// }
+
 
 //! while
 
@@ -138,7 +140,7 @@ let city = [
 let structure = city[0];
 let pos = 0;
 
-while(structure != ' empty street') {
+while(structure != 'empty street') {
     console.log(`spider-man swings from the ${structure}.`);
     pos++;
     structure = city[pos];
@@ -146,10 +148,53 @@ while(structure != ' empty street') {
 console.log(`spider-man lands in the ${structure}.`);
 
 //! do while
+/*
+  structure
 
+   do {
+    code block...
+   } while condition;
+
+  runs the code block at least once!
+  
+*/  
 let spidyHP = 20;
 let badGuys = [
     {
-        baddie: 'green goblin'
+        baddie: 'green goblin',
+        hp:15,
+    },
+    {
+         baddie: 'venom',
+         hp:25,
+         
+    },
+    {
+        baddie: 'stilt- man',
+        hp:5,
+    },
+
+]; 
+
+let rand = Math.floor(Math.random() * badGuys.length);
+let villain = badGuys[rand];
+
+console.log(`${villain.baddie} has appeared `);
+
+do{
+    console.log(`${villain.baddie} hits Spider-Man! `);
+    spidyHP--;
+    console.log(`Spider-Man HP: ${spidyHP}`)
+    
+    let spidyHit = Math.floor(Math.random() * 3);
+    console.log(`Spider-Man hits ${villain.baddie} for ${spidyHit} damage!!!`);
+    villain.hp -= spidyHit;
+    console.log(`villain HP: ${villain.hp}`);
+
+    if(spidyHP === 0) {
+        break;
     }
-]
+
+} while (villain.hp > 0)
+
+villain.hp <= 0 ? console.log(`Spider-Man captures ${villain.baddie}`) : console.log(`${villain.baddie} has taken down Spider-Man!!!`);
